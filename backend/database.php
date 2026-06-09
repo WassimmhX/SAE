@@ -20,3 +20,4 @@ try {
         "message" => "Erreur de connexion : " . $e->getMessage()
     ]));
 }
+?>
