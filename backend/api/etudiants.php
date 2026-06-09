@@ -5,6 +5,7 @@ header("Content-Type: application/json");
 
 require_once "../sql/database.php";
 
+/*récupération des événements et leurs informations */
 $sql = "
     SELECT 
         e.id_evenement,
