@@ -1,13 +1,13 @@
 <?php
 
 $host = "localhost";
-$dbname = "gestion_evenements";
+$dbname = "gestion_cours";
 $username = "root";
 $password = "";
 
 try {
     $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8",
+        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
         $username,
         $password
     );
