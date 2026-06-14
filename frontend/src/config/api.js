@@ -7,7 +7,6 @@ export async function apiRequest(endpoint, options = {}) {
   });
 
   const text = await response.text();
-  console.log(text);
   let data = null;
   try {
     data = text ? JSON.parse(text) : null;
