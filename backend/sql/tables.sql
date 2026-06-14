@@ -19,7 +19,7 @@ CREATE TABLE `evaluations` (
     `code_module` VARCHAR(10) NOT NULL,
     `code_session` VARCHAR(10) NOT NULL,
     `type_evaluation` VARCHAR(20) NOT NULL,
-    `date_evaluation` INT NULL,
+    `date_evaluation` DATE NULL,
     `poids` DECIMAL(6,2) NOT NULL,
 
     PRIMARY KEY (`id_evaluation`),
@@ -80,8 +80,8 @@ CREATE TABLE `inscriptions` (
     `code_module` VARCHAR(10) NOT NULL,
     `code_session` VARCHAR(10) NOT NULL,
     `id_etudiant` INT NOT NULL,
-    `date_inscription` INT NULL,
-    `date_desinscription` INT NULL,
+    `date_inscription` DATE NULL,
+    `date_desinscription` DATE NULL,
 
     PRIMARY KEY (`code_module`, `code_session`, `id_etudiant`),
 
@@ -98,7 +98,7 @@ CREATE TABLE `resultats_evaluations` (
     `code_session` VARCHAR(10) NOT NULL,
     `id_evaluation` INT NOT NULL,
     `id_etudiant` INT NOT NULL,
-    `date_soumission` INT NULL,
+    `date_soumission` DATE NULL,
     `est_conserve` TINYINT(1) NULL,
     `note` DECIMAL(6,2) NULL,
 
@@ -125,7 +125,7 @@ CREATE TABLE `interactions_vle` (
     `code_session` VARCHAR(10) NOT NULL,
     `id_etudiant` INT NOT NULL,
     `id_ressource` INT NOT NULL,
-    `date_interaction` INT NOT NULL,
+    `date_interaction` DATE NOT NULL,
     `nb_clics` INT NOT NULL,
 
     PRIMARY KEY (`id_interaction`),
