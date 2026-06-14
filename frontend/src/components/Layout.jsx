@@ -30,9 +30,6 @@ export default function Layout() {
           </div>
         </div>
         <Navigation />
-        <div className="sidebar-footer">
-          Thème clair forcé pour garder la même interface, même si le système est en mode sombre.
-        </div>
       </aside>
 
       <main className="main">

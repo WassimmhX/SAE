@@ -1,8 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { apiRequest } from '../config/api.js';
 import { resources } from '../config/resources.js';
-import StatCard from '../components/StatCard.jsx';
 
 function countLabel(resource, count) {
   if (count == null) return '—';
@@ -46,13 +45,6 @@ export default function Dashboard() {
     return () => { mounted = false; };
   }, []);
 
-  const quickStats = useMemo(() => [
-    { label: 'Étudiants', value: stats?.counts?.etudiants ?? 0, accent: '#7c3aed', note: 'Profils enregistrés' },
-    { label: 'Modules', value: stats?.counts?.modules ?? 0, accent: '#2563eb', note: 'Sessions pédagogiques' },
-    { label: 'Résultats', value: stats?.counts?.resultats_evaluations ?? 0, accent: '#db2777', note: `Moyenne ${Number(stats?.notes?.moyenne || 0).toFixed(1)}` },
-    { label: 'Clics VLE', value: Number(stats?.interactions?.total_clics || 0).toLocaleString('fr-FR'), accent: '#ea580c', note: 'Interactions cumulées' },
-  ], [stats]);
-
   return (
     <>
       <header className="page-header">
@@ -67,10 +59,6 @@ export default function Dashboard() {
       </header>
 
       {error ? <div className="error-box">{error}</div> : null}
-
-      <div className="grid cards" style={{ marginBottom: 18 }}>
-        {quickStats.map((item) => <StatCard key={item.label} {...item} value={loading ? '…' : item.value} />)}
-      </div>
 
       <div className="grid resources" style={{ marginBottom: 18 }}>
         {resources.map((resource) => {
