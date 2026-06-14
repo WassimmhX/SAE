@@ -28,6 +28,8 @@ CREATE TABLE `evaluations` (
     CONSTRAINT `fk_evaluations_modules`
         FOREIGN KEY (`code_module`, `code_session`)
         REFERENCES `modules` (`code_module`, `code_session`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -45,6 +47,8 @@ CREATE TABLE `ressources_vle` (
     CONSTRAINT `fk_ressources_modules`
         FOREIGN KEY (`code_module`, `code_session`)
         REFERENCES `modules` (`code_module`, `code_session`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -67,6 +71,8 @@ CREATE TABLE `etudiants` (
     CONSTRAINT `fk_etudiants_modules`
         FOREIGN KEY (`code_module`, `code_session`)
         REFERENCES `modules` (`code_module`, `code_session`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -82,6 +88,8 @@ CREATE TABLE `inscriptions` (
     CONSTRAINT `fk_inscriptions_etudiants`
         FOREIGN KEY (`code_module`, `code_session`, `id_etudiant`)
         REFERENCES `etudiants` (`code_module`, `code_session`, `id_etudiant`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -99,11 +107,15 @@ CREATE TABLE `resultats_evaluations` (
 
     CONSTRAINT `fk_resultats_evaluations`
         FOREIGN KEY (`id_evaluation`)
-        REFERENCES `evaluations` (`id_evaluation`),
+        REFERENCES `evaluations` (`id_evaluation`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT `fk_resultats_etudiants`
         FOREIGN KEY (`code_module`, `code_session`, `id_etudiant`)
         REFERENCES `etudiants` (`code_module`, `code_session`, `id_etudiant`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -122,9 +134,13 @@ CREATE TABLE `interactions_vle` (
 
     CONSTRAINT `fk_interactions_etudiants`
         FOREIGN KEY (`code_module`, `code_session`, `id_etudiant`)
-        REFERENCES `etudiants` (`code_module`, `code_session`, `id_etudiant`),
+        REFERENCES `etudiants` (`code_module`, `code_session`, `id_etudiant`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
 
     CONSTRAINT `fk_interactions_ressources`
         FOREIGN KEY (`code_module`, `code_session`, `id_ressource`)
         REFERENCES `ressources_vle` (`code_module`, `code_session`, `id_ressource`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
