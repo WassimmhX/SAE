@@ -79,6 +79,12 @@ export default function ResourcePage({ resource }) {
 
   useEffect(() => { setPage(1); }, [search, resource.key]);
 
+  useEffect(() =>{
+    setTimeout(() => {
+      setSuccess('');
+      setError('');
+    }, 5000);
+  }, [success, error]);
   const openCreate = () => {
     setSuccess('');
     setError('');
