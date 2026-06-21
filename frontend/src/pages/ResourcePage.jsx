@@ -6,7 +6,7 @@ import { RecordForm } from '../components/RecordForm.jsx';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { Table } from '../components/Table.jsx';
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 100;
 
 function emptyRecord(resource) {
   return Object.fromEntries(resource.fields.map((field) => [field.name, '']));
