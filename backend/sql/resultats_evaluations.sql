@@ -26098,3 +26098,4 @@ INSERT INTO `resultats_evaluations` (`code_module`, `code_session`, `id_evaluati
 ('FFF', '2013B', 34862, 1766303, '2013-05-01', 0, 63),
 ('FFF', '2013B', 34862, 1772429, '2013-04-30', 0, 78),
 ('FFF', '2013B', 34862, 1784775, '2013-05-01', 0, 74);
+
