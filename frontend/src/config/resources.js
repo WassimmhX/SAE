@@ -22,7 +22,7 @@ export const resources = [
       { name: 'nb_tentatives_precedentes', label: 'Tentatives précédentes', type: 'number' },
       { name: 'credits_etudies', label: 'Crédits étudiés', type: 'number' },
       { name: 'handicap', label: 'Handicap', type: 'select', options: ['', 'N', 'Y'] },
-      { name: 'resultat_final', label: 'Résultat final', type: 'select', options: ['', 'Distinction', 'Pass', 'Fail', 'Withdrawn'] },
+      { name: 'resultat_final', label: 'Résultat final', type: 'select', options: ['', 'Réussite', 'Échec', 'Abandon'] },
     ],
     tableColumns: ['id_etudiant', 'code_module', 'code_session', 'genre', 'region', 'credits_etudies', 'resultat_final'],
   },
