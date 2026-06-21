@@ -2004,9 +2004,8 @@ INSERT INTO `interactions_vle` (`code_module`, `code_session`, `id_etudiant`, `i
 ('AAA', '2013J', 2498700, 546734, '2014-05-30', 12),
 ('AAA', '2013J', 2498700, 546737, '2014-05-30', 7),
 ('AAA', '2013J', 2498700, 546733, '2014-05-30', 11),
-('AAA', '2013J', 2498700, 546954, '2014-05-30', 1);
+('AAA', '2013J', 2498700, 546954, '2014-05-30', 1),
 
-INSERT INTO `interactions_vle` (`code_module`, `code_session`, `id_etudiant`, `id_ressource`, `date_interaction`, `nb_clics`) VALUES
 ('AAA', '2013J', 2498700, 546614, '2014-05-30', 4),
 ('AAA', '2013J', 2498700, 546665, '2014-05-30', 9),
 ('AAA', '2013J', 2498700, 546657, '2014-05-30', 2),
@@ -4796,7 +4795,7 @@ INSERT INTO `interactions_vle` (`code_module`, `code_session`, `id_etudiant`, `i
 ('AAA', '2013J', 102806, 546644, '2014-06-02', 1),
 ('AAA', '2013J', 102806, 546644, '2014-06-02', 3),
 ('AAA', '2013J', 113295, 546614, '2014-06-02', 1),
-('AAA', '2013J', 113295, 546644, '2014-06-02', 4),
+('AAA', '2013J', 113295, 546644, '2014-06-02', 4);
 
 
 
@@ -10940,7 +10939,7 @@ INSERT INTO `interactions_vle` (`code_module`, `code_session`, `id_etudiant`, `i
 ('BBB', '2013B', 534698, 542864, '2013-01-24', 24),
 ('BBB', '2013B', 533697, 542812, '2013-01-24', 1),
 ('BBB', '2013B', 533697, 542808, '2013-01-24', 1),
-('BBB', '2013B', 533697, 543187, '2013-01-24', 1),
+('BBB', '2013B', 533697, 543187, '2013-01-24', 1);
 
 
 INSERT INTO `interactions_vle` (`code_module`, `code_session`, `id_etudiant`, `id_ressource`, `date_interaction`, `nb_clics`) VALUES
