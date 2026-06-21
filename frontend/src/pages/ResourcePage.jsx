@@ -3,6 +3,8 @@ import Modal from '../components/Modal.jsx';
 import { apiRequest } from '../config/api.js';
 import { Stats } from '../components/Stats.jsx';
 import { RecordForm } from '../components/RecordForm.jsx';
+import { SearchBar } from '../components/SearchBar.jsx';
+import { Table } from '../components/Table.jsx';
 
 const PAGE_SIZE = 12;
 
@@ -35,10 +37,6 @@ function formatValue(column, value) {
   if (column === 'nb_clics') return Number(value).toLocaleString('fr-FR');
   return String(value);
 }
-
-
-
-
 
 export default function ResourcePage({ resource }) {
   const [rows, setRows] = useState([]);
@@ -165,50 +163,21 @@ export default function ResourcePage({ resource }) {
       <Stats resource={resource} rows={rows} />
 
       <section className="card table-card">
-        <div className="toolbar" style={{ padding: 16, paddingBottom: 0 }}>
-          <label className="search" aria-label="Recherche">
-            <span>🔎</span>
-            <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Rechercher dans cette table…" />
-          </label>
-          <div className="actions">
-            <button className="btn ghost" type="button" onClick={loadRows}>Rafraîchir</button>
-          </div>
-        </div>
+        <SearchBar value={search} onChange={setSearch} placeholder="Rechercher…" />
 
         {loading ? <div className="loading">Chargement des données…</div> : (
-          <>
-            <div className="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    {resource.tableColumns.map((column) => <th key={column}>{resource.fields.find((field) => field.name === column)?.label || column}</th>)}
-                    <th style={{ textAlign: 'right' }}>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {visibleRows.map((row) => (
-                    <tr key={rowKey(resource, row)}>
-                      {resource.tableColumns.map((column) => <td key={column}>{formatValue(column, row[column])}</td>)}
-                      <td>
-                        <div className="row-actions">
-                          <button className="btn ghost" type="button" onClick={() => openEdit(row)}>Modifier</button>
-                          <button className="btn danger" type="button" onClick={() => openDelete(row)}>Supprimer</button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {filtered.length === 0 ? <div className="empty">Aucune donnée trouvée.</div> : null}
-            <div className="pagination">
-              <span>{filtered.length.toLocaleString('fr-FR')} résultat{filtered.length > 1 ? 's' : ''} · page {safePage}/{pageCount}</span>
-              <div className="pagination-controls">
-                <button className="btn ghost" disabled={safePage <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>Précédent</button>
-                <button className="btn ghost" disabled={safePage >= pageCount} onClick={() => setPage((p) => Math.min(pageCount, p + 1))}>Suivant</button>
-              </div>
-            </div>
-          </>
+          <Table 
+            resource={resource}
+            filtered={filtered}
+            visibleRows={visibleRows}
+            setPage={setPage}
+            rowKey={rowKey}
+            formatValue={formatValue}
+            openEdit={openEdit}
+            openDelete={openDelete}
+            safePage={safePage}
+            pageCount={pageCount}
+          />
         )}
       </section>
 
