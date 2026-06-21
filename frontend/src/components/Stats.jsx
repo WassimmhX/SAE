@@ -7,9 +7,9 @@ export function Stats({ resource, rows }) {
   ];
 
   if (resource.key === 'etudiants') {
-    const pass = rows.filter((row) => row.resultat_final === 'Réussite').length;
-    const withdraw = rows.filter((row) => row.resultat_final === 'Abandon').length;
-    const fail = rows.filter((row) => row.resultat_final === 'Échec').length;
+    const pass = rows.filter((row) => row.resultat_final === 'Pass').length;
+    const withdraw = rows.filter((row) => row.resultat_final === 'Withdrawn').length;
+    const fail = rows.filter((row) => row.resultat_final === 'Fail').length;
     common.push(
       { label: 'Pass', value: pass, accent: '#059669', note: 'Réussites' },
       { label: 'withdraw', value: withdraw, accent: '#7c3aed', note: 'Abandons' },
