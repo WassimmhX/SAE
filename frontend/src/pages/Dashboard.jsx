@@ -31,9 +31,6 @@ export default function Dashboard() {
         <div>
           <div className="eyebrow">Système de gestion des cours</div>
           <h1 className="page-title">Tableau de bord</h1>
-          <p className="page-subtitle">
-            Une interface claire pour consulter, créer, modifier et supprimer les données pédagogiques.
-          </p>
         </div>
         <Link className="btn primary" to="/etudiants">Commencer</Link>
       </header>
